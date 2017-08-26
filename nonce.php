@@ -1,7 +1,7 @@
 <?php
 
 // Package namespace
-namespace SeedPlugins\Libraries
+namespace SeedPlugins\Libraries;
 
 /**
  * Nonce class
@@ -81,7 +81,7 @@ class Nonce {
 	 * Create a new, user-independent, 24H valid nonce
 	 */
 	public function create($action = '') {
-		return substr($this->getHash($$this->tick().'|'.$action.'|'.__FILE__), -12, 10);
+		return substr($this->getHash($this->tick().'|'.$action.'|'.__FILE__), -12, 10);
 	}
 
 
