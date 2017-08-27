@@ -6,17 +6,17 @@
 	"version" : "1.0.0",
 	"keywords" : ["security", "salt", "nonce", "auth"],
 	"time" : "2017-08-27",
-	"authors": [
+	"homepage" : "https://seedplugins.com",
+	"authors" : [
 		{
 			"name": "Pau Iglesias",
 			"email": "pau@pauiglesias.com",
 			"homepage": "https://pauiglesias.com",
-			"role": "Developer"
 		}
 	],
 	"autoload": {
         "psr-4": {
-            "SeedPlugins\\Libraries\\Nonce\\": "src/"
+            "SeedPlugins\\Nonce\\": "src/"
         }
     },
 	"require" : {

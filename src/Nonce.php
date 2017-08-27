@@ -1,7 +1,7 @@
 <?php
 
 // Package namespace
-namespace SeedPlugins\Libraries;
+namespace SeedPlugins\Nonce;
 
 /**
  * Nonce class
