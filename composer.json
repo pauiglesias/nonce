@@ -1,0 +1,25 @@
+{
+	"name" : "seedplugins/nonce",
+	"description" : "A wordpress-style nonce class not depending of the logged user and supporting custom salt hashing.",
+	"license" : "GPL-3.0",
+    "type" : "library",
+	"version" : "1.0.0",
+	"keywords" : ["security", "salt", "nonce", "auth"],
+	"time" : "2017-08-27",
+	"authors": [
+		{
+			"name": "Pau Iglesias",
+			"email": "pau@pauiglesias.com",
+			"homepage": "https://pauiglesias.com",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+        "psr-4": {
+            "SeedPlugins\\Libraries\\Nonce\\": "src/"
+        }
+    },
+	"require" : {
+        "php": ">=5.3.0",
+    }
+}
