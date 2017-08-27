@@ -268,34 +268,32 @@ class Nonce {
 	private function hashHmac($algo, $data, $key, $raw_output = false) {
 
 		// Check existing function
-		if (function_exists('hash_hmac')) {
+		if (function_exists('hash_hmac'))
 			return hash_hmac($algo, $data, $key, $raw_output);
 
-		// From WP
-		} else {
+		/* From WP */
 
-			$packs = array('md5' => 'H32', 'sha1' => 'H40');
+		$packs = array('md5' => 'H32', 'sha1' => 'H40');
 
-			if (!isset($packs[$algo]))
-				return false;
+		if (!isset($packs[$algo]))
+			return false;
 
-			$pack = $packs[$algo];
+		$pack = $packs[$algo];
 
-			if (strlen($key) > 64)
-				$key = pack($pack, $algo($key));
+		if (strlen($key) > 64)
+			$key = pack($pack, $algo($key));
 
-			$key = str_pad($key, 64, chr(0));
+		$key = str_pad($key, 64, chr(0));
 
-			$ipad = (substr($key, 0, 64) ^ str_repeat(chr(0x36), 64));
-			$opad = (substr($key, 0, 64) ^ str_repeat(chr(0x5C), 64));
+		$ipad = (substr($key, 0, 64) ^ str_repeat(chr(0x36), 64));
+		$opad = (substr($key, 0, 64) ^ str_repeat(chr(0x5C), 64));
 
-			$hmac = $algo($opad.pack($pack, $algo($ipad.$data)));
+		$hmac = $algo($opad.pack($pack, $algo($ipad.$data)));
 
-			if ($raw_output)
-				return pack($pack, $hmac);
+		if ($raw_output)
+			return pack($pack, $hmac);
 
-			return $hmac;
-		}
+		return $hmac;
 	}
 
 
@@ -306,25 +304,23 @@ class Nonce {
 	private function hashEquals($a, $b) {
 
 		// Check existing function
-		if (function_exists('hash_equals')) {
+		if (function_exists('hash_equals'))
 			return hash_equals($a, $b);
 
-		// From WP
-		} else {
+		/* From WP */
 
-			$a_length = strlen($a);
-			if ($a_length !== strlen($b))
-				return false;
+		$a_length = strlen($a);
+		if ($a_length !== strlen($b))
+			return false;
 
-			$result = 0;
+		$result = 0;
 
-			// Do not attempt to "optimize" this.
-			for ($i = 0; $i < $a_length; $i++) {
-				$result |= ord($a[$i]) ^ ord($b[$i]);
-			}
-
-			return $result === 0;
+		// Do not attempt to "optimize" this.
+		for ($i = 0; $i < $a_length; $i++) {
+			$result |= ord($a[$i]) ^ ord($b[$i]);
 		}
+
+		return $result === 0;
 	}
 
 
