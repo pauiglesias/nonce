@@ -205,6 +205,8 @@ class Nonce {
 
 		// Store hash
 		$cached_salt = md5($salt);
+
+		// Done
 		return $cached_salt;
 	}
 
