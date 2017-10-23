@@ -4,7 +4,8 @@
 namespace SeedPlugins\Nonce;
 
 /**
- * Nonce class
+ * Nonce class 1.0
+ * https://github.com/pauiglesias/nonce
  *
  * @package SeedPlugins
  * @subpackage Libraries
