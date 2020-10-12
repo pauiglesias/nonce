@@ -1,2 +1,2 @@
 # nonce
-A wordpress-style nonce class with no dependencies of the logged user and supporting custom salt hashing.
+A wordpress-style nonce class not dependent on the logged-in user and supporting custom salt hashing.
